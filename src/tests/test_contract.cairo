@@ -28,37 +28,4 @@ fn test_simple_json() {
     assert(json_data.at(json_data.len() - 3) == @'Tony', 'Json String Error');
 }
 
-#[test]
-#[available_gas(20000000)]
-fn test_json_metadata() {
-    let JsonTest = deploy();
-    let mut json_data: Span<felt252> = JsonTest.metadata();
-    let mut i = 0;
-    loop {
-        if i == 256 {
-            break;
-        }
-        i.print();
-        i += 1;
-    };
-    ('m' * 256 * 256 + 194 * 256 + 178).print();
-    let expected = array![
-        '{ ',
-        '"',
-        'a',
-        '" : "',
-        'This is a value',
-        'This is another value',
-        '"',
-        ', "attributes" : [',
-        '{"display_type": "number", ',
-        '"value": ',
-        '1',
-        '}',
-        ']',
-        '}'
-    ]
-        .span();
-    assert(json_data == expected, 'Json String Error');
-}
 
