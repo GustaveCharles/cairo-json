@@ -19,7 +19,7 @@ casm = true
 name = "compiled"
 
 [dependencies]
-starknet = ">=2.2.0"
+starknet = ">=2.1.0"
 
 [cairo]
 sierra-replace_ids = true
